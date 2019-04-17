@@ -68,7 +68,8 @@ AM_CPPFLAGS=		-I$(srcdir)/libcperciva/alg		\
 			-I$(srcdir)/lib/util			\
 			-DCPUSUPPORT_CONFIG_FILE=\"cpusupport-config.h\" \
 			-D_POSIX_C_SOURCE=200809L		\
-			-D_XOPEN_SOURCE=700
+			-D_XOPEN_SOURCE=700			\
+			${CFLAGS_POSIX}
 
 scrypt_LDADD=		libcperciva_aesni.a libcperciva_rdrand.a \
 			libcperciva_shani.a libscrypt_sse2.a

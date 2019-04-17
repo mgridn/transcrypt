@@ -64,6 +64,13 @@ AC_MSG_RESULT([${ac_compiler_warnings}])
 AS_IF([test x${ac_compiler_warnings} = xyes],
    [AX_CFLAGS_WARN_ALL])
 
+# Run the libcperciva POSIX compatibility tests and pass values to the Makefile.
+AC_MSG_NOTICE([checking POSIX compatibility...])
+LIBCPERCIVA_DIR=${srcdir}/libcperciva
+CFLAGS_POSIX=`export CC="${CC}"; command -p sh ${LIBCPERCIVA_DIR}/POSIX/posix-cflags.sh "$PATH"`
+AC_SUBST([CFLAGS_POSIX])
+AC_MSG_RESULT([... done checking POSIX compatibility])
+
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
